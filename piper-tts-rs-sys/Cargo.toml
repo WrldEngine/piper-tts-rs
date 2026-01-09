@@ -8,3 +8,4 @@ edition = "2024"
 [build-dependencies]
 bindgen = "0.72.1"
 cc = "1.2.51"
+cmake = "0.1"

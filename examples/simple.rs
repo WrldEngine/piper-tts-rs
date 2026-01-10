@@ -13,10 +13,9 @@ fn main() {
 
     let c_model_path = CString::new("model.onnx").unwrap();
     let c_model_config_path = CString::new("model.onnx.json").unwrap();
-    let c_espeak_ng_data_path =
-        CString::new("/path/to/espeak-ng-data").unwrap();
+    let c_espeak_ng_data_path = CString::new("/path/to/espeak-ng-data").unwrap();
     let c_inference_text = CString::new(
-        r#"Bugun osmon o‘zbek o‘zbek tiniq, shamol sokin. Ko‘chada hayot asta oqmoqda. Har kim o‘z ishida, o‘z niyatida. Vaqtni behuda ketkazmasdan, oldinga qarab yurish muhim.
+        r#"Bugun osmon tiniq, shamol sokin. Ko‘chada hayot asta oqmoqda. Har kim o‘z ishida, o‘z niyatida. Vaqtni behuda ketkazmasdan, oldinga qarab yurish muhim.
     "#).unwrap();
 
     let synt = unsafe {

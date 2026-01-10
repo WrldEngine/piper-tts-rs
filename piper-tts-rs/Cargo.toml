@@ -1,0 +1,17 @@
+[package]
+name = "piper-tts-rs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+piper-tts-rs-sys = { workspace = true }
+
+[features]
+default = ["cpu"]
+cuda = ["piper-tts-rs-sys/cuda"]
+cpu = ["piper-tts-rs-sys/cpu"]
+
+[[example]]
+name = "simple"
+path = "../examples/simple.rs"
+crate-type = ["bin"]

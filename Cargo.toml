@@ -1,13 +1,7 @@
-[package]
-name = "piper-tts-rs"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-piper-tts-rs-sys = { workspace = true }
-
 [workspace]
-members = ["piper-tts-rs-sys"]
+resolver = "1"
+members = ["piper-tts-rs-sys", "piper-tts-rs"]
 
 [workspace.dependencies]
 piper-tts-rs-sys = { path = "piper-tts-rs-sys" }
+piper-tts-rs = { path = "piper-tts-rs" }

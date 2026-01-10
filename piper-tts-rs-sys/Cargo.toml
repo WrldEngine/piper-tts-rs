@@ -5,7 +5,13 @@ edition = "2024"
 
 [dependencies]
 
+[features]
+default = ["cpu"]
+cuda = []
+cpu = []
+
 [build-dependencies]
 bindgen = "0.72.1"
 cc = "1.2.51"
 cmake = "0.1"
+find_cuda_helper = "0.2.0"

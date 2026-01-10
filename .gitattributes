@@ -1,1 +1,2 @@
 piper-tts-rs-sys/libpiper/include/** linguist-detectable=false
+piper-tts-rs-sys/libpiper-cuda/include/** linguist-detectable=false

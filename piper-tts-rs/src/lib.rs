@@ -7,7 +7,7 @@ pub struct PiperAudioChunk {
 }
 
 impl PiperAudioChunk {
-    fn new() -> Self {
+    pub fn new() -> Self {
         let chunk = unsafe { std::mem::MaybeUninit::<piper_audio_chunk>::zeroed().assume_init() };
         Self {
             piper_audio_chunk: chunk

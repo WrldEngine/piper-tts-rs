@@ -7,6 +7,10 @@ exclude = [
     "../examples/*"
 ]
 
+authors = ["Pulatov Kamran"]
+description = "Piper-TTS implementation in Rust"
+license-file = "COPYRIGHT.md"
+
 [dependencies]
 piper-tts-rs-sys = { workspace = true }
 anyhow = "1.0"

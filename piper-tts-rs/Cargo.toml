@@ -1,6 +1,6 @@
 [package]
 name = "piper-tts-rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 exclude = [
     "../samples/*",
@@ -9,7 +9,10 @@ exclude = [
 
 authors = ["Pulatov Kamran"]
 description = "Piper-TTS implementation in Rust"
-license-file = "COPYRIGHT.md"
+license-file = "../COPYRIGHT.md"
+readme = "../README.md"
+homepage = "https://github.com/WrldEngine/piper-tts-rs"
+repository = "https://github.com/WrldEngine/piper-tts-rs"
 
 [dependencies]
 piper-tts-rs-sys = { workspace = true }

@@ -1,7 +1,10 @@
 [package]
 name = "piper-tts-rs-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
+authors = ["Pulatov Kamran"]
+description = "Piper-TTS raw implementation in Rust"
+license-file = "../COPYRIGHT.md"
 
 [dependencies]
 

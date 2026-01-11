@@ -19,7 +19,9 @@ fn test_piper_headers() {
     .unwrap();
 
     let text = "salom ozbekiston!";
-    session.generate_wav(&mut empty_buff, text.to_string()).expect("failed to generate audio");
+    session
+        .generate_wav(&mut empty_buff, text.to_string())
+        .expect("failed to generate audio");
 
     let reader = hound::WavReader::new(empty_buff.as_slice()).unwrap();
     assert_eq!(reader.spec(), expected_spec);

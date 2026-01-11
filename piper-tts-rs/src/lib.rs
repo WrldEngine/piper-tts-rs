@@ -3,18 +3,17 @@
 use std::{ffi::CString, io::Cursor, mem::MaybeUninit};
 
 use hound::{WavSpec, WavWriter};
-use piper_tts_rs_sys::{PIPER_DONE, piper_synthesize_next, piper_synthesize_start};
 
 #[cfg(not(feature = "cuda"))]
 use piper_tts_rs_sys::{
-    piper_audio_chunk, piper_create, piper_default_synthesize_options, piper_synthesize_options,
-    piper_synthesizer,
+    PIPER_DONE, piper_audio_chunk, piper_create, piper_default_synthesize_options,
+    piper_synthesize_next, piper_synthesize_options, piper_synthesize_start, piper_synthesizer,
 };
 
 #[cfg(feature = "cuda")]
 use piper_tts_rs_sys::cuda::{
-    piper_audio_chunk, piper_create, piper_default_synthesize_options, piper_synthesize_options,
-    piper_synthesizer,
+    PIPER_DONE, piper_audio_chunk, piper_create, piper_default_synthesize_options,
+    piper_synthesize_next, piper_synthesize_options, piper_synthesize_start, piper_synthesizer,
 };
 
 #[derive(Debug)]
@@ -45,6 +44,16 @@ impl PiperSession {
         let model_config_path = CString::new(model_config_path)?;
         let espeak_ng_data_path = CString::new(espeak_ng_data_path.unwrap_or_default())?;
 
+        #[cfg(feature = "cuda")]
+        let synth = unsafe {
+            piper_create(
+                model_path.as_ptr(),
+                model_config_path.as_ptr(),
+                espeak_ng_data_path.as_ptr(),
+                true,
+            )
+        };
+        #[cfg(not(feature = "cuda"))]
         let synth = unsafe {
             piper_create(
                 model_path.as_ptr(),

@@ -39,3 +39,14 @@ fn main() {
     println!("WAV File saved successfully!")
 }
 ```
+
+### Use with CUDA
+```bash
+cargo run --example simple_native --features cuda
+```
+
+or
+
+```toml
+piper-tts-rs = { version = "0.1.1", features = "cuda" }
+```

@@ -4,16 +4,15 @@ use std::{ffi::CString, io::Cursor, mem::MaybeUninit};
 
 use hound::{WavSpec, WavWriter};
 
-use piper_tts_rs_sys::piper_free;
 #[cfg(not(feature = "cuda"))]
 use piper_tts_rs_sys::{
-    PIPER_DONE, piper_audio_chunk, piper_create, piper_default_synthesize_options,
+    PIPER_DONE, piper_audio_chunk, piper_create, piper_default_synthesize_options, piper_free,
     piper_synthesize_next, piper_synthesize_options, piper_synthesize_start, piper_synthesizer,
 };
 
 #[cfg(feature = "cuda")]
 use piper_tts_rs_sys::cuda::{
-    PIPER_DONE, piper_audio_chunk, piper_create, piper_default_synthesize_options,
+    PIPER_DONE, piper_audio_chunk, piper_create, piper_default_synthesize_options, piper_free,
     piper_synthesize_next, piper_synthesize_options, piper_synthesize_start, piper_synthesizer,
 };
 

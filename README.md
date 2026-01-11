@@ -1,5 +1,10 @@
 # Piper TTS Rust direct binding
 
+# Requirements
+Need to install clang (and other built-in tools, that already exists on many linux distributions)
+
+`sudo apt-get install libclang-dev`
+
 ## Tips
 - Convert RAW to WAV for piper, use `ffmpeg -f f32le -ar 22050 -ac 1 -i audio.raw audio.wav` (soon this convertation will be implemented)
 - `cargo run --example simple` - generates .raw file (raw pcm chunks 22050 Hz, 1 mono)

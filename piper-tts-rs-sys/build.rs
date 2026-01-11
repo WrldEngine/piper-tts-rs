@@ -52,7 +52,8 @@ fn main() {
     println!("cargo:rustc-link-search=native={}", include_dir.display());
     println!("cargo:rustc-link-lib=piper");
 
-    let out_path = PathBuf::from(env::var("CARGO_MANIFEST_DIR").expect("Unable to find out manifest dir"));
+    let out_path =
+        PathBuf::from(env::var("CARGO_MANIFEST_DIR").expect("Unable to find out manifest dir"));
 
     bindgen::Builder::default()
         .header(header_filename)

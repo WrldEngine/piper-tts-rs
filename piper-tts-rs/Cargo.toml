@@ -5,6 +5,8 @@ edition = "2024"
 
 [dependencies]
 piper-tts-rs-sys = { workspace = true }
+anyhow = "1.0"
+hound = "3.5.1"
 
 [features]
 default = ["cpu"]
@@ -14,4 +16,9 @@ cpu = ["piper-tts-rs-sys/cpu"]
 [[example]]
 name = "simple"
 path = "../examples/simple.rs"
+crate-type = ["bin"]
+
+[[example]]
+name = "simple_native"
+path = "../examples/simple_native.rs"
 crate-type = ["bin"]

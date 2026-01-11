@@ -1,0 +1,29 @@
+use std::{fs::File, io::Write};
+use piper_tts_rs::PiperSession;
+
+fn main() {
+    let mut file = File::create("./samples/test.wav").expect("Error");
+    let session = PiperSession::new(
+        "./model.onnx".to_string(),
+        "./model.onnx.json".to_string(),
+        None,
+    )
+    .expect("error during creating session");
+
+    let inference_text = r#"
+        Jahon savdo tashkilotiga a’zolikning yakuniy pallasi: 
+        O‘zbekiston 2,5 oy ichida ulgura oladimi? Kasalni yashirsang,
+        isitmasi oshkor qiladi: o‘qituvchilar majburiy mehnatga tizimli ravishda jalb qilindimi?
+    "#
+    .to_string();
+
+    // ! Clean WAV file with headers, do not use in streaming
+    let mut empty_buff = Vec::<u8>::new();
+    session
+        .generate_wav(&mut empty_buff, inference_text)
+        .expect("failed to generate chunks");
+    file.write_all(&empty_buff)
+        .expect("failed saving chunks to file");
+
+    println!("WAV File saved successfully!")
+}

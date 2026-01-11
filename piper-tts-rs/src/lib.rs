@@ -4,6 +4,7 @@ use std::{ffi::CString, io::Cursor, mem::MaybeUninit};
 
 use hound::{WavSpec, WavWriter};
 
+use piper_tts_rs_sys::piper_free;
 #[cfg(not(feature = "cuda"))]
 use piper_tts_rs_sys::{
     PIPER_DONE, piper_audio_chunk, piper_create, piper_default_synthesize_options,
@@ -95,5 +96,11 @@ impl PiperSession {
 
         WavWriter::new(&mut Cursor::new(audio_buffer), spec)?;
         Ok(())
+    }
+}
+
+impl Drop for PiperSession {
+    fn drop(&mut self) {
+        unsafe { piper_free(self.synthesizer) };
     }
 }

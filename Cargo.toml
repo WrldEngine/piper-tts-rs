@@ -3,5 +3,5 @@ resolver = "1"
 members = ["piper-tts-rs-sys", "piper-tts-rs"]
 
 [workspace.dependencies]
-piper-tts-rs-sys = { path = "piper-tts-rs-sys", version = "0.1.2" }
-piper-tts-rs = { path = "piper-tts-rs", version = "0.1.2" }
+piper-tts-rs-sys = { path = "piper-tts-rs-sys", version = "0.1.3" }
+piper-tts-rs = { path = "piper-tts-rs", version = "0.1.3" }

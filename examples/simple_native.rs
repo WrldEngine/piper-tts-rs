@@ -1,5 +1,5 @@
-use std::{fs::File, io::Write};
 use piper_tts_rs::PiperSession;
+use std::{fs::File, io::Write};
 
 fn main() {
     let mut file = File::create("./samples/test.wav").expect("Error");

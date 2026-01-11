@@ -31,8 +31,8 @@ impl PiperAudioChunk {
 
 #[derive(Debug)]
 pub struct PiperSession {
-    pub synthesizer: *mut piper_synthesizer,
-    pub options: piper_synthesize_options,
+    synthesizer: *mut piper_synthesizer,
+    options: piper_synthesize_options,
 }
 
 impl PiperSession {

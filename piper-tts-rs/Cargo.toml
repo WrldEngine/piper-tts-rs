@@ -22,3 +22,7 @@ crate-type = ["bin"]
 name = "simple_native"
 path = "../examples/simple_native.rs"
 crate-type = ["bin"]
+
+[[test]]
+name = "piper_safe_test"
+path = "../tests/piper_safe_test.rs"

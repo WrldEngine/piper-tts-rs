@@ -2,6 +2,10 @@
 name = "piper-tts-rs"
 version = "0.1.0"
 edition = "2024"
+exclude = [
+    "../samples/*",
+    "../examples/*"
+]
 
 [dependencies]
 piper-tts-rs-sys = { workspace = true }
